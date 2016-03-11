@@ -51,7 +51,11 @@ void loop() // run over and over
     if (relayState == LOW) {
       // If it's time to change relay state, do it!
       unsigned long now = millis();
-      if ( now - last_relay_toggle > interval_seconds * 1000  )
+      unsigned long tmp_interval = (long)interval_seconds * 1000;
+//      Serial.print("tmp_interval:");
+//      Serial.println(tmp_interval);
+//      delay(250);
+      if ( now - last_relay_toggle > tmp_interval  )
       {
         last_relay_toggle = now;
         //close relay
